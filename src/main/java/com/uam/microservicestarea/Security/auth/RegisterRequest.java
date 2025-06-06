@@ -8,8 +8,6 @@ import com.uam.microservicestarea.Security.model.Role;
 
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class RegisterRequest {
 
     private String username;
@@ -64,6 +62,19 @@ public class RegisterRequest {
     }
 
     public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public RegisterRequest() {
+
+    }
+
+    public RegisterRequest(String username, String password, String email, String name, String lastName, Role role) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.lastName = lastName;
         this.role = role;
     }
 }

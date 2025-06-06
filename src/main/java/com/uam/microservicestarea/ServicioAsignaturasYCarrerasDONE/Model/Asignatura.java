@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "Asignatua")
+@Table(name = "Asignatura")
 public class Asignatura
 {
 

@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-public class    JwtService {
+public class JwtService {
 
     private static final String SECRET = "586E3272357538782F413F4428472B4B6250655368566B597033733676397924";
 
@@ -39,16 +39,16 @@ public class    JwtService {
     }
 
     public String getUsernameFromToken(String token) {
-        return getClaim(token,Claims::getSubject);
+        return getClaim(token, Claims::getSubject);
     }
 
     private Date getDateExpiration(String token) {
-        return getClaim(token,Claims::getExpiration);
+        return getClaim(token, Claims::getExpiration);
     }
 
-    public boolean isTokenValid(String token,UserDetails userDetails) {
-          final String username = getUsernameFromToken(token);
-          return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    public boolean isTokenValid(String token, UserDetails userDetails) {
+        final String username = getUsernameFromToken(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
@@ -59,7 +59,6 @@ public class    JwtService {
         Claims claims = getClaimsFromToken(token);
         return claimsResolver.apply(claims);
     }
-
 
     private Claims getClaimsFromToken(String token) {
         return Jwts
